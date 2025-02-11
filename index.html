@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fun Quiz Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://example.com/funny-background.jpg'); /* Replace with your funny background image URL */
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .quiz-container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .timer {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .options button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1rem;
+      background-color: #ff5722;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .options button:hover {
+      background-color: #e64a19;
+    }
+
+    .blog-link {
+      margin-top: 20px;
+    }
+
+    .blog-link a {
+      text-decoration: none;
+      color: #00bcd4;
+      font-size: 1.2rem;
+    }
+
+    .blog-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Fun Quiz Game</h1>
+    <div class="timer">Time left: <span id="timer">5</span> seconds</div>
+    <div class="question">What is the capital of France?</div>
+    <div class="options">
+      <button onclick="checkAnswer('Paris')">Paris</button>
+      <button onclick="checkAnswer('London')">London</button>
+      <button onclick="checkAnswer('Berlin')">Berlin</button>
+      <button onclick="checkAnswer('Madrid')">Madrid</button>
+    </div>
+    <div class="blog-link">
+      <a href="https://example.com/blog" target="_blank">Know more...</a>
+    </div>
+  </div>
+
+  <script>
+    let timeLeft = 5;
+    const timerElement = document.getElementById('timer');
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timerElement.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        alert('Time is up! The correct answer is Paris.');
+      }
+    }, 1000);
+
+    function checkAnswer(answer) {
+      clearInterval(countdown);
+      if (answer === 'Paris') {
+        alert('Correct! 🎉');
+      } else {
+        alert('Wrong answer! 😢 The correct answer is Paris.');
+      }
+    }
+  </script>
+</body>
+</html>
